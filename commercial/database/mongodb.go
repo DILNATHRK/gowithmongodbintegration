@@ -39,7 +39,7 @@ func Mongoclose(client *mongo.Client, ctx context.Context,
 
 func Mongoconnect(uri string) (*mongo.Client, context.Context,
 	context.CancelFunc, error) {
-
+	fmt.Println("connected successfully")
 	// ctx will be used to set deadline for process, here
 	// deadline will of 30 seconds.
 	ctx, cancel := context.WithTimeout(context.Background(),
@@ -49,6 +49,22 @@ func Mongoconnect(uri string) (*mongo.Client, context.Context,
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 	return client, ctx, cancel, err
 }
+
+// func Mongoconnect(uri string) (*mongo.Client, context.Context,
+// 	context.CancelFunc, error) {
+// 	fmt.Println("connected successfully")
+// 	// ctx will be used to set deadline for process, here
+// 	// deadline will of 30 seconds.
+// 	ctx, cancel := context.WithTimeout(context.Background(),
+// 		30*time.Second)
+
+// 	// mongo.Connect return mongo.Client method
+// 	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+// 	return
+// }
+
+
+
 
 // This is a user defined method that accepts
 // mongo.Client and context.Context

@@ -11,14 +11,21 @@ import (
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8800"
+		port = "8080"
 	}
 
 	router := gin.New()
 	router.Use(gin.Logger())
-	//	routes.PublicRoutes(router)
+	// routes.PublicRoutes(router)
 	routes.PrivateRoutes(router)
 
 	log.Fatal(router.Run(":" + port))
 
 }
+
+
+
+
+
+
+

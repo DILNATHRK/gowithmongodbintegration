@@ -6,10 +6,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-/* func PublicRoutes(publicRoutes *gin.Engine){
-	publicRoutes.GET("/admin",controller.Anki())
-} */
-
 func PrivateRoutes(privateRoutes *gin.Engine) {
-	privateRoutes.GET("/commencialRequest/SelectLocality", location.CreateCity())
+    privateRoutes.POST("/Manage/Commercialportal/SaveBasicBuildingDetails",location.InsertInDatabase())
+	// privateRoutes.GET("/commercialRequest/SelectLocality/insertcity", location.InsertInDatabase())
+	privateRoutes.GET("/commercialRequest/SelectLocality/Deletecity", location.DeleteInDatabase())
+	privateRoutes.GET("/commercialRequest/SelectLocality/Updatecity", location.UpdateInDatabase())
+	privateRoutes.GET("/commercialRequest/SelectLocality/Selectindatabase", location.Selectindatabase())
+	privateRoutes.GET("/commercialRequest/SelectLocality/Queryindatabase", location.Queryindatabase())
+}
+
+func PublicRoutes(publicRoutes *gin.Engine) {
+
 }
